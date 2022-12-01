@@ -1,8 +1,8 @@
 # Files
 
-* day_1.py - Solution to Day 1 Problem
-* input_data.txt - Data input for the problem
-* output.txt - results from stdout from solution
+* [day_1.py](day_1.py) - Solution to Day 1 Problem
+* [input_data.txt](input_data.txt) - Data input for the problem
+* [output.txt](output.txt) - results from stdout from solution
 
 
 # Problem
