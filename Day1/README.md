@@ -1,6 +1,7 @@
 # Files
 
-* [day_1.py](day_1.py) - Solution to Day 1 Problem
+* [day_1.py](day_1.py) - Solution to Day 1 Problem in Python
+* [day_1.bash](day_1.bash) - Solution to Day 1 Problem in Bash
 * [input_data.txt](input_data.txt) - Data input for the problem
 * [output.txt](output.txt) - results from stdout from solution
 
