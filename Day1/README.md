@@ -1,7 +1,8 @@
 # Files
 
-* [day_1.py](day_1.py) - Solution to Day 1 Problem in Python
 * [day_1.bash](day_1.bash) - Solution to Day 1 Problem in Bash
+* [day_1.pl](day_1.pl) - Solution to Day 1 Problem in Perl
+* [day_1.py](day_1.py) - Solution to Day 1 Problem in Python
 * [input_data.txt](input_data.txt) - Data input for the problem
 * [output.txt](output.txt) - results from stdout from solution
 
