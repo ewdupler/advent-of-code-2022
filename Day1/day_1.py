@@ -6,7 +6,7 @@ Author: Eugene Dupler
 
 def main():
     # Open our data file
-    input_file = "Day1/day_1.txt"
+    input_file = "Day1/input_data.txt"
 
     try:
         with open(input_file, 'r') as file:
