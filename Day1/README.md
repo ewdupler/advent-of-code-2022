@@ -1,4 +1,12 @@
---- Day 1: Calorie Counting ---
+# Files
+
+* day_1.py - Solution to Day 1 Problem
+* input_data.txt - Data input for the problem
+* output.txt - results from stdout from solution
+
+
+# Problem
+## --- Day 1: Calorie Counting ---
 
 Santa's reindeer typically eat regular reindeer food, but they need a lot of magical energy to deliver presents on Christmas. For that, their favorite snack is a special type of star fruit that only grows deep in the jungle. The Elves have brought you on their annual expedition to the grove where the fruit grows.
 
@@ -12,20 +20,20 @@ The Elves take turns writing down the number of Calories contained by the variou
 
 For example, suppose the Elves finish writing their items' Calories and end up with the following list:
 
-1000
-2000
-3000
+    1000
+    2000
+    3000
 
-4000
+    4000
 
-5000
-6000
+    5000
+    6000
 
-7000
-8000
-9000
+    7000
+    8000
+    9000
 
-10000
+    10000
 
 This list represents the Calories of the food carried by five Elves:
 
@@ -39,7 +47,7 @@ In case the Elves get hungry and need extra snacks, they need to know which Elf 
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
---- Part Two ---
+## --- Part Two ---
 
 By the time you calculate the answer to the Elves' question, they've already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
 
