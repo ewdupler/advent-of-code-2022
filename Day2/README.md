@@ -2,7 +2,7 @@
 
 My official entry is the Python version of the code.
 
-* [day_2.bash](day_2.bash) - Solution to Day 2 Problem in Bash
+* [day_2.py](day_2.py) - Solution to Day 2 Problem in Python
 * [input_data.txt](input_data.txt) - Data input for the problem
 * [output.txt](output.txt) - results from stdout from solution
 
