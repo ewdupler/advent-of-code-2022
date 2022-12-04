@@ -44,13 +44,8 @@ def dchar3(s1, s2, s3):
             return letter            
 
 def letterval(letter):
-    sletters =' abcdefghijklmnopqrstuvwxyz'
-    bletters = sletters.upper()
-
-    if letter in sletters:
-        return sletters.find(letter)
-    if letter in bletters:
-        return bletters.find(letter) + 26
+    import string
+    return str(" " + string.ascii_lowercase + string.ascii_uppercase).find(letter)
 
 if __name__ == "__main__":
     main()
