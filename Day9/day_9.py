@@ -3,64 +3,79 @@ advent of code 2022 - Day 9 (parts 1 & 2) [python3]
 
 Author: Eugene Dupler
 """
-events = [2, 10]
-chain = list()
+rope_lengths = [2, 10]  # lengths of "rope" for each round of the puzzle
+rope_chain = list()  # Global variable used to track the individual "ropes"
 
 # Open our data file
 input_file = "Day9/input_data.txt"
-# input_file = "Day9/practice_data.txt"
+# input_file = "Day9/practice_data.txt"  # Uncomment for practice data
 
 
 class rope():
+    """ Rope object
+
+    Attributes:
+    x (int), current coordinate on the horizontal plane
+    y (int), current coordinate on the vertical plane
+    tail_trail (dict), dictionary of unique x/y coordinates occupied by this object at any time
+    move (dict), list of move functions that can be invoked through this object
+
+    Methods:
+    U: # increment y by one
+    D: # decrement y by one
+    L: # decrement x by one
+    R: # increment x by one
+    mark_trail: # Record current position in tail_trail attribute
+    tail_count: # Return current count of entries in tail_trail 
+    """
     def __init__(self, x=0, y=0):
         self.x = int(x)
         self.y = int(y)
-        self.move = {"U":self.U, "D":self.D, "L":self.L, "R":self.R}
         self.tail_trail = {f"{self.x} {self.y}":True}
+        self.move = {"U":self.U, "D":self.D, "L":self.L, "R":self.R}
 
-    def R(self, val):
-        self.x += int(val)
 
-    def L(self, val):
-        self.x -= int(val)
+    # Movement functions (Right, Left, Up, Down)
+    def R(self, val): self.x += int(val)
+    def L(self, val): self.x -= int(val)
+    def U(self, val): self.y += int(val)
+    def D(self, val): self.y -= int(val)
 
-    def U(self, val):
-        self.y += int(val)
-
-    def D(self, val):
-        self.y -= int(val)
-
+    # Marking the trail
     def mark_trail(self):
         self.tail_trail[f"{self.x} {self.y}"] = True
         return
 
+    # Counting marks on the trail
     def tail_count(self):
         return len(self.tail_trail)
 
 
 def main():
-    global tails
+    """ Return a count of visited paths for each rope chain of objects specified in rope_lengths """
     counter = 0
-    for tails in events:
+    for tails in rope_lengths:
         counter += 1
         print(f"Event {counter} tail positions: {rope_count(tails)}")
         
 
 def rope_count(tails):
-    global data
-    total_size = 0
+    """ Manipulate rope object movement and return a count of visited coordinates
+    
+    Keyword arguments:
+    1. tails (int)  # represents length of linked chain of objects to create and manipulate
 
+    Returns: (int)  # count of visited coordinates of the last element in the rope chain
+    """
     try:
         with open(input_file, 'r') as file:
             data = file.read().splitlines()
     except Exception as e:
         print(e)
 
-    h_rope = rope()
-
-    # Build the chain
+    # Build the rope_chain
     for index in range(tails):
-        chain.append(rope())
+        rope_chain.append(rope())
 
     for line in data:
         [h_move_direction, h_move_distance] = line.split()[0:2]
@@ -68,37 +83,51 @@ def rope_count(tails):
         for step in range(int(h_move_distance)):
             move(h_move_direction)
 
-    return chain[tails - 1].tail_count()
+    return rope_chain[tails - 1].tail_count()
 
 
 def move(direction, depth=0):
-    global chain
+    """ Move a rope object in a direction by one unit
 
-    chain[depth].mark_trail()
+    Keyword arguments:
+    1. direction (required), one of: L, R, U, D  # left, right, up or down
+    2. depth (optional), (int)  # default = 0; represents depth in a recursively linked chain of objects
+
+    Returns: None
+    """
+    global rope_chain
+
+    rope_chain[depth].mark_trail()
 
     if depth == 0:
-        chain[depth].move[direction](1)
+        rope_chain[depth].move[direction](1)
     else:
-        headx = chain[depth-1].x
-        heady = chain[depth-1].y
-        thisx = chain[depth].x
-        thisy = chain[depth].y
+        headx = rope_chain[depth-1].x
+        heady = rope_chain[depth-1].y
+        thisx = rope_chain[depth].x
+        thisy = rope_chain[depth].y
         if (abs(thisx - headx) > 1) or (abs(thisy - heady) > 1):
             if thisy < heady:
-                chain[depth].y += 1
+                thisy += 1
             elif thisy > heady:
-                chain[depth].y -= 1
+                thisy -= 1
             if thisx < headx:
-                chain[depth].x += 1
+                thisx += 1
             elif thisx > headx:
-                chain[depth].x -= 1
+                thisx -= 1
 
-    chain[depth].mark_trail()
+            # Set object values
+            rope_chain[depth].x = thisx
+            rope_chain[depth].y = thisy
 
+    rope_chain[depth].mark_trail()  # Mark the path of this rope
+
+    ## RECURSION ##
     # Go to the next rope in the chain
     depth += 1
-    if depth < len(chain):
+    if depth < len(rope_chain):
         move(direction, depth)
+
     return
 
 
