@@ -3,12 +3,13 @@ advent of code 2022 - Day 9 (parts 1 & 2) [python3]
 
 Author: Eugene Dupler
 """
+DAY=9
 rope_lengths = [2, 10]  # lengths of "rope" for each round of the puzzle
 rope_chain = list()  # Global variable used to track the individual "ropes"
 
 # Open our data file
-input_file = "Day9/input_data.txt"
-# input_file = "Day9/practice_data.txt"  # Uncomment for practice data
+input_file = f"Day{DAY}/input_data.txt"
+# input_file = f"Day{DAY}/practice_data.txt"  # Uncomment for practice data
 
 
 class rope():
@@ -53,11 +54,19 @@ class rope():
 
 def main():
     """ Return a count of visited paths for each rope chain of objects specified in rope_lengths """
-    counter = 0
-    for tails in rope_lengths:
-        counter += 1
-        print(f"Event {counter} tail positions: {rope_count(tails)}")
+
+    with open(f"Day{DAY}/output.txt", "w") as outfile:
+        counter = 0
+        for tails in rope_lengths:
+            counter += 1
+            output(f"Event {counter} tail positions: {rope_count(tails)}", outfile)
         
+
+def output(output_line, fh):
+    """ Send output to both the output.txt file and to stdout"""
+    print(output_line)
+    fh.write(output_line + "\n")
+
 
 def rope_count(tails):
     """ Manipulate rope object movement and return a count of visited coordinates
