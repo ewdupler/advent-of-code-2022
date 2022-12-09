@@ -1,0 +1,2 @@
+Sum at most 100000:  1886043
+Delete dir size:  3842121
