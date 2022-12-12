@@ -7,6 +7,7 @@ I'm doing this for fun, in Python.  But it's still interesting to track my stats
 ## My Personal Entries
 
     DAY | Part1 Finish | Part 1 Rank | Score | Part 2 Finish | Part 2 Rank | Score
+*   [Day 11](Day11/README.md) 18:27:05  44474      0   21:03:56  38359      0
 *   [Day 10](Day10/README.md) 08:23:52  33128      0   21:25:56  47197      0
 *   [Day 9](Day9/README.md)   07:37:53  30889      0   13:20:50  33759      0
 *   [Day 7](Day7/README.md)       >24h  69454      0       >24h  67649      0

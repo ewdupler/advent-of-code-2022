@@ -1,5 +1,5 @@
 """
-advent of code 2022 - Day 9 (parts 1 & 2) [python3]
+advent of code 2022 - Day 10 (parts 1 & 2) [python3]
 
 Author: Eugene Dupler
 """
